@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_HUB_USER = "lalitaly"
-        APP_NAME = "node-hello-world"
+        APP_NAME = "node-hello-world-jenkin"
     }
     stages {
         stage('Build Image') {
