@@ -13,7 +13,7 @@ pipeline {
         stage('Push to Registry') {
             steps {
                 // Pre-requisite: Add DockerHub credentials to Jenkins with ID 'dockerhub-creds'
-                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                     sh "echo \$PASS | docker login -u \$USER --password-stdin"
                     sh "docker push ${DOCKER_HUB_USER}/${APP_NAME}:${BUILD_NUMBER}"
                 }
